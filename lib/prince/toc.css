@@ -1,0 +1,65 @@
+/* toc */
+#toc {
+   page-break-after: always;   
+}
+#toc a::after {
+   content: leader(".") target-counter(attr(href), page);
+}
+#toc, #toc ol {
+   page: table-of-contents;
+   list-style-type: none;
+}
+#toc::before {
+   font-size:12pt;
+   line-height: 1.2;
+   padding-top: 1em;
+   margin: 2em 0 0.5em 0;
+   page-break-after: avoid;
+   clear: both;
+   font-weight:bold;
+}      
+#toc li::marker { width: 2.4cm }
+#toc li.left::marker { text-align: left }
+#toc li.center::marker { text-align: center }
+#toc li.right::marker { text-align: right }
+/* toc links */
+#toc a {
+   text-decoration: none;
+   color: #0000FF;
+}
+#toc a:link, #toc a:active, #toc a:visited {
+     color: black; 
+     background: transparent;
+     text-decoration: none;
+}
+#toc a:visited {
+   background: transparent;
+}
+@page table-of-contents {
+   counter-reset: page 1;
+   counter-reset: pages 1;
+}
+/* lists */
+#toc { 
+  margin: 0.5em 0 0 12pt;
+  padding: 0;
+}
+#toc > li > ol {
+   margin-left: 12pt;
+}
+#toc > li > ol > li > ol {
+   margin-left: 19pt;
+}
+#toc > li > ol > li > ol > li > ol {
+   margin-left: 26pt;
+}
+#toc > li > ol > li > ol > li > ol > li > ol {
+   margin-left: 33pt;
+}
+#toc > li > ol > li > ol > li > ol > li > ol > li > ol {
+   margin-left: 40pt;
+}
+#toc li {
+  margin: 0.4em 0;
+  padding: 0;
+}
