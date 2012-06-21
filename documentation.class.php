@@ -9,7 +9,7 @@ if (!defined('W2P_BASE_DIR')) {
  *  @subpackage modules
  *  @version 
  */
-require ("config.php");
+require_once W2P_BASE_DIR . "/modules/documentation/config.php";
 
 /**
  *  CDocumentation Class
@@ -125,7 +125,7 @@ class CDocumentation extends w2p_Core_BaseObject
        return parent::delete();
     }
 
-    public function delete(CAppUI $AppUI) {
+    public function delete(w2p_Core_CAppUI $AppUI) {
         $perms = $AppUI->acl();
         if (!$perms->checkModuleItem('documentation', 'delete', $this->wikipage_id)) {
             return false;
@@ -170,8 +170,10 @@ class CDocumentation extends w2p_Core_BaseObject
        return parent::store();
     }
 
-    public function store(CAppUI $AppUI) {
+    public function store(w2p_Core_CAppUI $AppUI) {
         global $db, $WIKI_CONFIG;
+
+        require_once W2P_BASE_DIR . "/modules/documentation/config.php";
         $perms = $AppUI->acl();
         $isNotNew = $this->wikipage_id > 0;
         if ($isNotNew) {
