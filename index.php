@@ -103,7 +103,7 @@ if (!$page && !$wikipage_namespace && $wikipage_id == 0) {
     } elseif ($wikipage_namespace == "Image") {
         include_once (W2P_BASE_DIR . "/modules/documentation/views/image.php");
     } elseif ($wikipage_id == 0 && $canAdd) { // No start page for this project
-        require_once ("config.php");
+        require_once W2P_BASE_DIR . "/modules/documentation/config.php";
         $canDelete = $canDeleteWiki;
         $wikipage = array(
             'wikipage_parser' => $WIKI_CONFIG['default_parser'],
