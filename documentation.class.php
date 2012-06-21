@@ -9,7 +9,7 @@ if (!defined('W2P_BASE_DIR')) {
  *  @subpackage modules
  *  @version 
  */
-require ("config.php");
+require_once W2P_BASE_DIR . "/modules/documentation/config.php";
 
 /**
  *  CDocumentation Class
@@ -172,6 +172,8 @@ class CDocumentation extends w2p_Core_BaseObject
 
     public function store(CAppUI $AppUI) {
         global $db, $WIKI_CONFIG;
+
+        require_once W2P_BASE_DIR . "/modules/documentation/config.php";
         $perms = $AppUI->acl();
         $isNotNew = $this->wikipage_id > 0;
         if ($isNotNew) {
